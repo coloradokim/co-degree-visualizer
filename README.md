@@ -41,7 +41,7 @@ The user will see a list of the number of graduates from the range of years, the
 * CSS
 * JavaScript
 * jQuery
-* Materialize, Boostrap, or another
+* Materialize, Boostrap, or another CSS framework 
 
 ## Feature list
 
