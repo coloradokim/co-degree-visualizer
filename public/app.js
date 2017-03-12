@@ -18,4 +18,8 @@ $("form").submit(function(event) {
       const gradNum = results.length
       $(".showMe").append("<p>" + "In " + $year + ", " + gradNum + " people graduated from a Colorado Public Higher Education Institution with a degree in Computer and Information Sciences." + "</p>")
     });
+
+    $("button").click(function(){
+      $(".showMe").empty()
+    });
 });
