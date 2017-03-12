@@ -1,8 +1,7 @@
 $("form").submit(function(event) {
     const $year = $("#yearAwarded").val()
-    $(".showMe").append("<p>" + $year + "</p>")
     event.preventDefault();
-    
+
     $.ajax({
         url: "https://data.colorado.gov/resource/yt5k-hawq.json?year=" + $year,
         type: "GET",
@@ -11,6 +10,12 @@ $("form").submit(function(event) {
             "$$app_token": "Y0bDVvQ1EATIlQ2bHbPv30kDR"
         }
     }).done(function(data) {
-        console.log(data);
+      const results = [];
+      for (var i = 0; i < data.length; i++) {
+        if (parseInt(data[i]["cip"]) >= 11 && parseInt(data[i]["cip"]) <= 11.9999 )
+          results.push(parseInt(data[i]));
+      }
+      const gradNum = results.length
+      $(".showMe").append("<p>" + "In " + $year + ", " + gradNum + " people graduated from a Colorado Public Higher Education Instition with a degree in Computer and Information Sciences." + "</p>")
     });
 });
